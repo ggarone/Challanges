@@ -1,4 +1,5 @@
 <%@ include file="header.jsp" %>
+<%@ include file="menu.jsp" %>
 <%@ include file="todo.jsp" %>
 
 <!--  qui inserisco il contenuto dinamico -->

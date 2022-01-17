@@ -31,6 +31,11 @@
 		font-family: 'JohnHancockCP', sans-serif;
 		color: #2F8A26;
 	}
+	
+	#menu {
+		font-family: 'JohnHancockCP', sans-serif;
+		color: black;
+	}
 
 
 </style>

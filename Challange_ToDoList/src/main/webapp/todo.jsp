@@ -1,7 +1,7 @@
 <%@page import="model.Todo"%>
 <%@page import="controller.TodoCtrl"%>
 
-<h1>ITEM</h1>
+<h1>ITEMS</h1>
 <form method="POST" action="addToDo.jsp">
 	<input type="text" name="item" id="item" placeholder="item">
 	<input type="submit" value="aggiungi">
