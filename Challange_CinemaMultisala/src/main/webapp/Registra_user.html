@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <legend>Registrati</legend>
+            <label for="firstname">Nome</label><br>
+			<input type="text" name="firstname" id="firstname" required><br>
+			<label for="lastname">Cognome</label><br>
+			<input type="text" name="lastname" id="lastname" required><br>
+            <label for="number">Inserisci il numero di...</label><br>
+			<input type="number" name="number" id="number" required><br>
+            <label for="email">Email</label> <br>
+			<input type="email" name="email" id="email" required><br>
+            <label for="password">Password:</label> <br>
+			<input type="password" name="password" id="password" required="required"><br>
+            <label for="password">Conferma Password:</label> <br>
+			<input type="password" name="password_2" id="password_2" required="required" oninput="check(this)"><br>
+            <input type="submit" value="Invia">
+        </fieldset>
+    </form>
+    
+    
+    
+    <br>
+    <br>    
+    <p>=================================================================================================</p>
+    <h1>Debug</h1>
+    <p>for debug  web application use this part</p>
+    <p>made by Christian / for information group linea 1 aulla 5</p3>
+    <br>
+    <br>
+
+    
+    
+    
+    <script>
+        function check(input) {
+        if (input.value != document.getElementById('password').value) {
+            input.setCustomValidity('La password deve corrispondere.');
+        } else {
+            input.setCustomValidity('');
+        }
+    }
+    </script>
+</body>
+</html>

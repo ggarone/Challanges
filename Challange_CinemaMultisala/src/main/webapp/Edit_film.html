@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+ 
+    <p>=================================================================================================</p>
+    <h1>Elimina e modifica un film</h1>
+    <p>=================================================================================================</p>
+
+    <form>
+    <ul>
+        <p id="paragrafo1">Stalingrad, sala 1, prezzo: 12</p>
+        <input  id="b1" type="button" onclick="cancella('paragrafo1'),cancella('b1'),sendToServer(),cancella('p1')" value="elimina"/>
+        <span id="p1">  <a href="modifica_film.html">modifica film</a></span>
+
+        <p id="paragrafo2">Taxi Driver, sala 1, prezzo: 12</p>
+        <input id="b2" type="button" onclick="cancella('paragrafo2'),cancella('b2'),sendToServer(),cancella('p2')" value="elimina"/>
+        <span id="p2">  <a href="modifica_film.html">modifica film</a></span>
+
+        <p id="paragrafo3">Lettere da iwo Jima, sala 2, prezzo: 12</p>
+        <input id="b3" type="button" onclick="cancella('paragrafo3'),cancella('b3'),sendToServer(),cancella('p3')" value="elimina"/>
+        <span id="p3">  <a href="modifica_film.html">modifica film</a></span>
+
+        <p id="paragrafo4">La caduta del Black Hawk, sala 2, prezzo: 12</p>
+        <input id="b4" type="button" onclick="cancella('paragrafo4'),cancella('b4'),sendToServer(),cancella('p4')" value="elimina"/>
+        <span id="p4">  <a href="modifica_film.html">modifica film</a></span>
+
+        <p id="paragrafo5">La vita è bella, sala 2, prezzo: 12</p>
+        <input id="b5" type="button" onclick="cancella('paragrafo5'),cancella('b5'),sendToServer(),cancella('p5')" value="elimina"/>
+        <span id="p5">  <a href="modifica_film.html">modifica film</a></span>
+
+        <p id="paragrafo6">Terra e libertà, sala 3, prezzo: 12</p>
+        <input id="b6" type="button" onclick="cancella('paragrafo6'),cancella('b6'),sendToServer(),cancella('p6')" value="elimina"/>
+        <span id="p6">  <a href="modifica_film.html">modifica film</a></span>
+
+        <p id="paragrafo7">Rocky, sala 3, prezzo: 12</p>
+        <input id="b7" type="button" onclick="cancella('paragrafo7'),cancella('b7'),sendToServer(),cancella('p7')" value="elimina"/>
+        <span id="p7">  <a href="modifica_film.html">modifica film</a></span>
+
+        <p id="paragrafo8">Il giovane Karl Marx, sala 4, prezzo: 12</p>
+        <input id="b8" type="button" onclick="cancella('paragrafo8'),cancella('b8'),sendToServer(),cancella('p8')" value="elimina"/>
+        <span id="p8">  <a href="modifica_film.html">modifica film</a></span>
+
+        <p id="paragrafo9">This is Spinal Tap, sala 4, prezzo: 12</p>
+        <input id="b9" type="button" onclick="cancella('paragrafo9'),cancella('b9'),sendToServer(),cancella('p9')" value="elimina"/>
+        <span id="p9">  <a href="modifica_film.html">modifica film</a></span>
+
+        <p id="paragrafo10">Kill Bill, sala 4, prezzo: 12</p>
+        <input id="b10" type="button" onclick="cancella('paragrafo10'),cancella('b10'),sendToServer(),cancella('p10')" value="elimina"/>
+        <span id="p10">  <a href="modifica_film.html">modifica film</a></span>
+    </ul>
+    </form> 
+    
+    
+        <br>
+    <br>    
+    <p>=================================================================================================</p>
+    <h1>Debug</h1>
+    <p>for debug  web application use this part</p>
+    <p>made by Christian / for information group linea 1 aulla 5</p3>
+    <br>
+    <br>
+    
+    <script type="text/javascript">
+        function cancella(elemento) {
+            document.getElementById(elemento).style.display = "none";
+        }
+        function sendToServer() {
+            alert ('Send informazioni to server for elimina film');
+        }
+    </script>
+</body>
+</html>

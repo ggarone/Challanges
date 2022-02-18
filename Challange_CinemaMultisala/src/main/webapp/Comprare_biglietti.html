@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+<h1> benvenuto a cinema Ivis </h1>
+
+
+<ul>
+<li><a href="index.html">Exit (Home)</a></li>
+
+<li><a href="Ritira_biglietto.html"> Ritira_biglietto.html ( Get and send json)</a></li>
+</ul>
+	
+	
+	
+	
+    <h4>Get json from host and show to list</h4>
+    
+   
+
+    <script>
+//  important url from host 
+//  const URL = "http://localhost:8080/RecapRicetteRegionali/api/ricette";
+//  const URL = "http://localhost:8080/RecapRicetteRegionali/api/ricette";
+//  const URL = "http://localhost:8080/RecapRicetteRegionali/api/ricette";
+//  const URL = "http://localhost:8080/RecapRicetteRegionali/api/ricette";
+//  const URL = "http://localhost:8080/RecapRicetteRegionali/api/ricette";
+        const URL = "https://jsonplaceholder.typicode.com/users";
+   
+            console.log("========= start send request ============");
+
+            let p = fetch(URL);
+            console.log(p);
+     
+            fetch(URL).then(response => response.json()).then(rJson => {
+        	
+                const tbl =document.createElement('table')
+                for (let response of rJson) {
+                    console.log(response);
+                    
+                    const line = document.createElement('tr')
+                    const td = document.createElement('td')
+                    td.textContent = response.name;
+                    line.appendChild(td);
+                    tbl.appendChild(line)
+                }
+                document.body.appendChild(tbl);
+            })
+
+      
+    </script>
+	
+	<br>
+	<br>
+	
+	
+</body>
+</html>
