@@ -24,31 +24,31 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item active">
-              <a class="nav-link" href="login.html">Home<span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="login">Home<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="test.html">Test</a>
+              <a class="nav-link" href="test">Test</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="result.html">Risultato</a>
+              <a class="nav-link" href="result">Risultato</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link disabled" href="classifica.html">Classifica</a>
+              <a class="nav-link disabled" href="classifica">Classifica</a>
             </li>
           </ul>
         </div>
       </nav>
 
 
-    <form>
+    <form action="signup" method="POST">
         <div class="form-group">
           <label for="username">Username</label>
-          <input type="username" class="form-control" id="Username" aria-describedby="usernameHelp" placeholder="Inserisci l'username">
+          <input type="username" name="username" class="form-control" id="Username" aria-describedby="usernameHelp" placeholder="Inserisci l'username">
           
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1">Password</label>
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Inserisci la password">
+          <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Inserisci la password">
         </div>
         
         <button type="submit" class="btn btn-primary">Registrati</button>

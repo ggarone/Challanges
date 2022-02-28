@@ -13,23 +13,25 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.garone.gestionaleDB.entities.Persona;
+import com.garone.gestionaleDB.entities.User;
 import com.garone.gestionaleDB.service.PersonaService;
+import com.garone.gestionaleDB.service.UserService;
 
 @RestController
-@RequestMapping("api/persona")
-public class PersonaREST {
+@RequestMapping("api/user")
+public class UserREST {
 	@Autowired
-	private PersonaService service;
+	private UserService service;
 
 	@GetMapping
-	public List<Persona> getPersone() {
+	public List<User> getPersone() {
 		return service.getPersone();
 	}
 	
 	//POST call to /api/auto
 	@PostMapping
-	public void addAuto(@RequestBody Persona p) {
-		this.service.addPersona(p);
+	public void addAuto(@RequestBody User u) {
+		this.service.addUser(u);
 	}
 
 }

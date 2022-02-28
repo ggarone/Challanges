@@ -5,11 +5,10 @@ CREATE TABLE IF NOT EXISTS `tss_2022`.`test` (
     PRIMARY KEY (`id_test`));
 
 CREATE TABLE IF NOT EXISTS `tss_2022`.`persona` (
-    `id_test` INT NOT NULL,
-    `id_persona` INT NOT NULL AUTO_INCREMENT,
-    `punteggio_totale` INT NULL,
-    `password` VARCHAR(45) NULL,
-    PRIMARY KEY (`id_persona`));
+   `id` int NOT NULL AUTO_INCREMENT,
+   `id_test` int NOT NULL,
+   `punteggio_totale` int DEFAULT NULL,
+   PRIMARY KEY (`id`));
 
 CREATE TABLE IF NOT EXISTS `tss_2022`.`domanda` (
     `id_domanda` INT NOT NULL AUTO_INCREMENT,
@@ -22,6 +21,14 @@ CREATE TABLE IF NOT EXISTS `tss_2022`.`domandatest` (
     `id_test` INT NOT NULL,
     `id_domanda` INT NOT NULL,
     PRIMARY KEY (`id_test`, `id_domanda`));
+
+CREATE TABLE IF NOT EXISTS `tss_2022`.`user` (
+  `id_user` INT NOT NULL AUTO_INCREMENT,
+  `id_persona` INT NOT NULL,
+  `username` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(45) NULL,
+  PRIMARY KEY (`id_user`));
+
     
 INSERT INTO domanda(id_domanda,testo_domanda,risposta_esatta,punteggio_domanda) VALUE
 /* Primo test */
@@ -54,8 +61,11 @@ INSERT INTO domanda(id_domanda,testo_domanda,risposta_esatta,punteggio_domanda) 
 INSERT INTO test(id_test,titolo_test,data_test) VALUE
 (1,'Generali','2022-02-28');
 
-INSERT INTO persona(id_test,id_persona,punteggio_totale,`password`) VALUE 
-(1,1,40,'napoli99');
+INSERT INTO persona(id_test,id_persona,punteggio_totale) VALUE 
+(1,1,40);
 
 INSERT INTO domandatest(id_test,id_domanda) VALUE
-(1,1),(1,5),(1,9),(1,18),(1,19)
+(1,1),(1,5),(1,9),(1,18),(1,19);
+
+INSERT INTO `user`(id_user,id_persona,username,`password`) VALUE
+(1,1,'alexis','cinghiale97')

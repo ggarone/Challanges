@@ -12,51 +12,66 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "persona")
 public class Persona {
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int id;
+	
 	@OneToOne
 	@JoinColumn(name="idTest")
 	Test test;
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idPersona;
-	private int PunteggioTotale;
+	
+	@OneToOne
+	@JoinColumn(name="idPersona")
+	private Persona persona;
+	private int punteggioTotale;
 	
 	public Persona() {
 		// TODO Auto-generated constructor stub
 	}
-
-	public Persona(Test test, int idPersona, int punteggioTotale) {
+	
+	public Persona(int id, Test test, Persona persona, int punteggioTotale) {
 		super();
+		this.id = id;
 		this.test = test;
-		this.idPersona = idPersona;
-		PunteggioTotale = punteggioTotale;
+		this.persona = persona;
+		this.punteggioTotale = punteggioTotale;
 	}
 
+	public int getId() {
+		return id;
+	}
+	
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 	public Test getTest() {
 		return test;
 	}
-
+	
 	public void setTest(Test test) {
 		this.test = test;
 	}
-
-	public int getIdPersona() {
-		return idPersona;
+	
+	public Persona getPersona() {
+		return persona;
 	}
-
-	public void setIdPersona(int idPersona) {
-		this.idPersona = idPersona;
+	
+	public void setPersona(Persona persona) {
+		this.persona = persona;
 	}
-
+	
 	public int getPunteggioTotale() {
-		return PunteggioTotale;
+		return punteggioTotale;
 	}
-
+	
 	public void setPunteggioTotale(int punteggioTotale) {
-		PunteggioTotale = punteggioTotale;
+		this.punteggioTotale = punteggioTotale;
 	}
 
 	@Override
 	public String toString() {
-		return "Persona [test=" + test + ", idPersona=" + idPersona + ", PunteggioTotale=" + PunteggioTotale + "]";
+		return "Persona [id=" + id + ", test=" + test + ", persona=" + persona + ", punteggioTotale=" + punteggioTotale
+				+ "]";
 	}
 }

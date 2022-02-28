@@ -17,16 +17,16 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item active">
-              <a class="nav-link" href="login.html">Home<span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="login">Home<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="test.html">Test</a>
+              <a class="nav-link" href="test">Test</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="result.html">Risultato</a>
+              <a class="nav-link" href="result">Risultato</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link disabled" href="classifica.html">Classifica</a>
+              <a class="nav-link disabled" href="classifica">Classifica</a>
             </li>
           </ul>
         </div>
@@ -53,16 +53,18 @@
 
     <div class="container mt-sm-5 my-1">
         <div class="question ml-sm-5 pl-sm-5 pt-2">
-            <div class="py-2 h5"><b>Q. La domanda è?</b></div>
-            <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options"> 
-    <label class="options">Risposta 1 
-    <input type="radio" name="radio"> <span class="checkmark"></span> </label> <label class="options">Risposta 2 
-    <input type="radio" name="radio"> <span class="checkmark"></span> </label> <label class="options">Risposta 3 
-    <input type="radio" name="radio"> <span class="checkmark"></span> </label> <label class="options">Risposta aperta 
-    <input type="radio" name="radio"> <span class="checkmark"></span> </label> </div>
+            <div class="py-2 h5"><b>Q.</b></div>    <!-- inserisci la domanda-->
+            <div class="risposta" id="options"> 
+                <form>
+                    
+                    <div class="form-group">
+                      <label for="risposta"></label>
+                      <input type="domanda" class="form-control" id="domanda" aria-describedby="domandaHelp" placeholder="Inserisci la risposta">
+                    
+                  </form>
         </div>
         <div class="d-flex align-items-center pt-3">
-            <div id="prev"> <button class="btn btn-primary">Previous</button> </div>
+            <div id="prev"> <button class="btn btn-success">Previous</button> </div>
             <div class="ml-auto mr-sm-5"> <button class="btn btn-success">Next</button> </div>
         </div>
     </div>

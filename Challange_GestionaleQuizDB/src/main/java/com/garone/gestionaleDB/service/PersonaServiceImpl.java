@@ -54,13 +54,10 @@ public class PersonaServiceImpl implements PersonaService {
 			this.personeMap = new TreeMap<Integer, Persona>();
 			this.personeMap = repo.findAll().stream()
 					.collect(Collectors.toMap(
-							Persona::getIdPersona,
+							Persona::getId,
 							Function.identity()));
 			return personeMap; 				
-			
 		}
-		
 		return this.personeMap;
 	}
-
 }

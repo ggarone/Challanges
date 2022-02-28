@@ -45,8 +45,8 @@ public class DomandaTestServiceImpl implements DomandaTestService {
 	public Map<Integer, Domanda> getDomandeTestMap() {
 		 List<DomandaTest> domandatest = repo.findAll();
 		 
-		 Map<Integer,Test> testMap = domandatest.stream().
-				 collect(Collectors.toMap(item -> item.getTest().getIdTest() , item -> item.getTest()));
+//		 Map<Integer,Test> testMap = domandatest.stream().
+//				 collect(Collectors.toMap(item -> item.getTest().getIdTest() , item -> item.getTest()));
 		 
 		 Map<Integer, Domanda> domandeMap = domandatest.stream().
 				 collect(Collectors.toMap(item -> item.getDomanda().getIdDomanda() , item -> item.getDomanda()));

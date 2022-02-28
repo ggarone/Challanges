@@ -14,12 +14,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.garone.gestionaleDB.entities.Persona;
+import com.garone.gestionaleDB.entities.User;
 import com.garone.gestionaleDB.service.PersonaService;
 import com.garone.gestionaleDB.service.UserService;
 
 @Controller
-@RequestMapping("login")
-public class Login {
+@RequestMapping("signup")
+public class Signup {
 	@Autowired
 	private UserService service;
 	
@@ -30,36 +31,24 @@ public class Login {
 			return "areaRiservata";
 					
 		} else {
-			return "login";
+			return "signup";
 		}
 	}
 	
 	@PostMapping
 	public String controlloLogin(@RequestParam String username, @RequestParam String password, Model m,HttpSession session) {
+		System.out.println(username + " " + password);
+		User u = new User(0,username,password);
+		System.out.println(u);
+		this.service.addUser(u);
+		System.out.println("added " + username + " " + password);
+		
 		if(this.service.isAuthTrue(username,password)) {
-			System.out.println("login successo " + username + " " + password);
+			System.out.println("login successo " + username + " " + password );
 			return "areaRiservata";
 		} else {
-			System.out.println("login fallito " + username + " " + password);
+			System.out.println("login fallito " + username + " " + password );
 			return "login";
 		}	
 	}
-	
-//	//GET call to /alimenti/api/ (alimenti root folder setted in application.properties)
-//	@GetMapping
-//	public String getAlimenti(Model m, HttpSession session){
-//		session.setAttribute("ruolo", "admin");
-//		m.addAttribute("lista",this.service.getAlimenti());
-//		m.addAttribute("titolo","elenco alimenti");
-//		
-//		return "login";
-//	}
-//	
-//	@GetMapping("{id}")
-//	public ModelAndView getById(@PathVariable int id){
-//		ModelAndView mav = new ModelAndView("dettaglio");
-//		mav.addObject("titolo","dettaglio");
-//		mav.addObject("alimento", this.service.getAlimentoById(id));
-//		return mav;
-//	}
 }
