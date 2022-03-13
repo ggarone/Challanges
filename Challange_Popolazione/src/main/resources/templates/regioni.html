@@ -1,0 +1,11 @@
+<div th:replace="header"><h1>...</h1></div>
+
+<form method="POST" action="regioni">
+    <select name="regione" required>
+        <option th:each = "regione:${regioni}" th:value="${regione}" th:text="${regione}"></option>
+    </select>
+    <input type="submit" value="Trova">
+</form>
+
+<script type="text/javascript"></script>
+<div th:replace="footer"><h1>...</h1></div>

@@ -1,0 +1,14 @@
+<div th:replace="header"><h1>...</h1></div>
+
+<h1>details</h1>
+<ul>
+    <li th:text="'regione' + ${provincia.regione}">provincia.regione</li>
+    <li th:text="'provincia' + ${provincia.provincia}">provincia.provincia</li>
+    <li th:text="'maschi' + ${provincia.maschi}">provincia.maschi</li>
+    <li th:text="'femmine' + ${provincia.femmine}">provincia.femmine</li>
+    <li th:text="'totale' + ${provincia.totale}">provincia.totale</li>
+</ul>
+
+
+<script type="text/javascript"></script>
+<div th:replace="footer"><h1>...</h1></div>

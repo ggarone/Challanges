@@ -1,0 +1,12 @@
+<div th:replace="header"><h1>...</h1></div>
+
+<h1>eta page</h1>
+<form method="POST" action="province">
+    <select name="provincia" required>
+        <option th:each = "eta:${etas}" th:value="${eta}" th:text="${eta}"></option>
+    </select>
+    <input type="submit" value="Trova">
+</form>
+
+<script type="text/javascript"></script>
+<div th:replace="footer"><h1>...</h1></div>
