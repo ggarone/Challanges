@@ -31,11 +31,11 @@ public class AcquistoREST {
 	@PostMapping("acquisto")
 //	public String generateAcquisto(@RequestParam int userId, @RequestParam String nome) {
 	public Acquisto generateAcquisto(@RequestBody Acquisto a) {
+		System.out.println(a);
 		LocalDate date = LocalDate.now();
 		a.setData(date);
 		UserSerie us = new UserSerie(a.getUser().getId(), a.getSerieTV().getId());
 		a.setId(us);
-		System.out.println(a);
 		service.addAcquisto(a);
 		return a;
 	}

@@ -1,0 +1,6 @@
+body{
+    background-image: url(/img/galley.jpg);
+    background-size: cover;
+    text-align: center;
+    margin: 100px 50px;
+}

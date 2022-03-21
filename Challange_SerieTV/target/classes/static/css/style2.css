@@ -1,0 +1,36 @@
+body{
+    background-image: url("/img/acquisti.jpg");
+    background-size: cover;
+    text-align: center;
+    margin: 100px 50px;
+}
+
+h3{
+    font-size: 4em;
+    color: red;
+    margin-bottom: 50px;
+}
+
+.card{
+    border-radius: 20px;
+    box-shadow: 0px 0px 30px rgb(0, 0, 0);
+    background-color: lightgray;
+    padding: 50px;
+    width: 60%;
+    margin: auto;
+}
+
+.card img{
+    border-radius: 10px;
+    box-shadow: 0px 0px 30px rgb(0, 0, 0);
+    height: 600px;
+    width: 45%;
+    margin: auto;
+}
+
+#grazie{
+    color: red;
+    font-size: 1.5rem;
+    height: 10px;
+    margin-bottom: 0;
+}
