@@ -1,0 +1,99 @@
+body{
+    background-color: #E5EFC1;
+}
+
+.container-fluid{
+    padding: 50px 180px;
+    /* border: 1px solid black; */
+}
+
+.title{
+    letter-spacing: 2px;
+    font-size: 3.5rem;
+    color: #6e949b;
+    text-align: center;
+    padding: 10px 0;
+    margin-bottom: 0;
+    text-shadow: 0px 0px 10px #6d949bb6;
+}
+
+hr:not([size]) {
+    height: 2px;
+}
+
+.acca{
+    width: 70%;
+    margin: 0 auto;
+    opacity: 1;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0), #6e949b, rgba(0, 0, 0, 0));
+}
+
+#foto-agenzia{
+    height: 400px;
+    width: 70%;
+    display: block;
+    margin: 0 auto;
+    margin-top: 50px;
+    border-radius: 20px;
+}
+
+.title-list{
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+    margin-top: 50px;
+    padding-left: 30px;
+    font-weight: 400;
+    color: #39AEA9;
+}
+
+.list-viaggi{
+    margin-top: 20px;
+}
+
+.single-card{
+    padding: 20px;
+    border-bottom: 1px solid black;
+}
+
+.row{
+    margin: 0;
+}
+
+.col-8{
+    padding: 10px;
+    /* border: 1px solid black; */
+}
+
+.col-8 h4{
+    font-size: 2.5rem;
+}
+
+.col-8 p{
+    margin-top: 20px;
+}
+
+.col-4{
+    text-align: center;
+    padding: 10px 100px;
+    /* border: 1px solid black; */
+}
+
+.col-4 img{
+    height: 200px;
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0px 0px 30px black;
+}
+
+.btn{
+    display: block;
+    margin: 0 auto;
+    margin-top: 25px;
+    width: 100%;
+    border-radius: 10px;
+    background-color: #39AEA9;
+    border: 0;
+    color: #E5EFC1;
+    letter-spacing: 2px;
+    box-shadow: 0px 0px 10px #39AEA9;
+}

@@ -1,61 +1,78 @@
 package com.garone.entities;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
 
 @Entity
 @Table(name = "documenti")
 public class Documento {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-
-	@ManyToOne
-	@JoinColumn(name = "viaggi_id")
-	private Viaggio viaggi;
-	
 	private String path;
-	private String descrizione;
+	private String nome;
+	private String tipo;
 	
+	@Transient
+	@ManyToMany(mappedBy = "documenti", fetch = FetchType.LAZY)
+	private Set<Viaggio> viaggi = new HashSet<Viaggio>();
+
 	public int getId() {
 		return id;
 	}
-	
+
 	public void setId(int id) {
 		this.id = id;
 	}
-	
-	public Viaggio getViaggi() {
-		return viaggi;
-	}
-	
-	public void setViaggi(Viaggio viaggi) {
-		this.viaggi = viaggi;
-	}
-	
+
 	public String getPath() {
 		return path;
 	}
-	
+
 	public void setPath(String path) {
 		this.path = path;
 	}
-	
-	public String getDescrizione() {
-		return descrizione;
+
+	public String getNome() {
+		return nome;
 	}
-	
-	public void setDescrizione(String descrizione) {
-		this.descrizione = descrizione;
+
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
-	
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+	public Set<Viaggio> getViaggi() {
+		return viaggi;
+	}
+
+	public void setViaggi(Set<Viaggio> viaggi) {
+		this.viaggi = viaggi;
+	}
+
 	@Override
 	public String toString() {
-		return "Documenti [id=" + id + ", viaggi=" + viaggi + ", path=" + path + ", descrizione=" + descrizione + "]";
+		return "Documento [id=" + id + ", path=" + path + ", nome=" + nome + ", tipo=" + tipo + ", viaggi=" + viaggi
+				+ "]";
 	}
 }

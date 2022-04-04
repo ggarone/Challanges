@@ -18,6 +18,7 @@ public class Cliente {
 	private String email;
 	private String cardType;
 	private int cardNumber;
+	
 	public int getId() {
 		return id;
 	}

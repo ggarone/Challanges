@@ -1,0 +1,79 @@
+.insert{
+    background-color: #A2D5AB;
+    padding: 50px;
+    margin-top: 50px;
+    margin-left: 30px;
+    width: 70%;
+    /* border: 1px solid black; */
+    border-radius: 20px;
+}
+
+label{
+    font-size: 21px;
+    margin-top: 20px;
+}
+
+input{
+    padding: 18px 5px;
+    height: 35px;
+    width: 80%;
+}
+
+textarea{
+    padding: 5px 0;
+    width: 80%;
+    height: 100px;
+}
+
+/* .col-7{
+    border: 1px solid black;
+}
+
+.col-5{
+    border: 1px solid black;
+} */
+
+label[for=dest]{
+    margin: 0;
+}
+
+.carousel{
+    height: 250px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.carousel-item img{
+    width: 250px;
+    height: 250px;
+}
+
+.row{
+    --bs-gutter-x: 0rem;
+}
+
+.second{
+    padding-top: 100px;
+}
+
+.second .btn{
+    height: 60px;
+}
+
+.second .col-7{
+    padding-top: 40px;
+}
+
+.second .col-7 .btn{
+    width: 70%;
+    background-color: #39AEA9;
+}
+
+.second .col-5 .btn{
+    width: 60%;
+    background-color: #557B83;
+}
+
+#delete{
+    background-color: rgb(255, 29, 29);
+}

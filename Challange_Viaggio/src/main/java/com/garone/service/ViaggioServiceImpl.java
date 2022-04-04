@@ -39,9 +39,7 @@ public class ViaggioServiceImpl implements ViaggioService{
 
 	@Override
 	public List<Viaggio> getViaggiByDestinazione(String destinazione) {
-		return getViaggi().stream()
-				.filter(v -> v.getDestinazione().equals(destinazione))
-				.toList();
+		return repo.findByDestinazione(destinazione);
 	}
 
 	@Override
