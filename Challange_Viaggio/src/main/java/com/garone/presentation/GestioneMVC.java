@@ -3,6 +3,7 @@ package com.garone.presentation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -14,14 +15,13 @@ public class GestioneMVC {
 	@Autowired
 	private ViaggioService service;
 	
-	// /, list -> viaggi.html , add -> operatore.html
-	
-	@GetMapping("")
+	@GetMapping("login")
+	@ModelAttribute("login")
 	public String getLoginPage() {
-		return "index.html";
+		return "login.html";
 	}
 	
-	@PostMapping("")
+	@PostMapping("login")
 	public String postLoginPage() {
 		// if utente loggato
 		return "redirect:/viaggi.html";

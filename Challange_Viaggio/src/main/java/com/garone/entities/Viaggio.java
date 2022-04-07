@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -15,6 +16,10 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 @Table(name = "viaggi")
 public class Viaggio {
@@ -23,12 +28,14 @@ public class Viaggio {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String nome;
+	@Column(length = 8000)
 	private String descrizione;
 	private String destinazione;
-	private int durata;
+	private String durata;
 	private double prezzo;
 	
-	@Transient
+//	@Transient
+	@JsonIgnore
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinTable(
 			name = "rel_viaggi_documenti", 
@@ -41,8 +48,9 @@ public class Viaggio {
 	)
 	private Set<Documento> documenti = new HashSet<>();
 	
-	@Transient
-	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+//	@Transient
+	@JsonIgnore
+	@ManyToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
 	@JoinTable(
 			name = "prenotazioni", 
 			joinColumns = {
@@ -52,7 +60,7 @@ public class Viaggio {
 					@JoinColumn(name = "clienti_id", referencedColumnName = "id", nullable = false, updatable = false)
 			}
 	)
-	private Set<Cliente> clienti = new HashSet<Cliente>();
+	private Set<Cliente> clienti = new HashSet<>();
 
 	public int getId() {
 		return id;
@@ -86,11 +94,11 @@ public class Viaggio {
 		this.destinazione = destinazione;
 	}
 
-	public int getDurata() {
+	public String getDurata() {
 		return durata;
 	}
 
-	public void setDurata(int durata) {
+	public void setDurata(String durata) {
 		this.durata = durata;
 	}
 
@@ -106,8 +114,18 @@ public class Viaggio {
 		return documenti;
 	}
 
+	
 	public void setDocumenti(Set<Documento> documenti) {
 		this.documenti = documenti;
+	}
+	
+	
+	public Set<Cliente> getClienti() {
+		return clienti;
+	}
+
+	public void setClienti(Set<Cliente> clienti) {
+		this.clienti = clienti;
 	}
 
 	@Override

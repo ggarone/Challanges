@@ -14,6 +14,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 @Table(name = "documenti")
@@ -26,8 +28,9 @@ public class Documento {
 	private String nome;
 	private String tipo;
 	
-	@Transient
-	@ManyToMany(mappedBy = "documenti", fetch = FetchType.LAZY)
+//	@Transient
+	@JsonIgnore
+	@ManyToMany(fetch = FetchType.LAZY,mappedBy = "documenti")
 	private Set<Viaggio> viaggi = new HashSet<Viaggio>();
 
 	public int getId() {
@@ -72,7 +75,6 @@ public class Documento {
 
 	@Override
 	public String toString() {
-		return "Documento [id=" + id + ", path=" + path + ", nome=" + nome + ", tipo=" + tipo + ", viaggi=" + viaggi
-				+ "]";
+		return "Documento [id=" + id + ", path=" + path + ", nome=" + nome + ", tipo=" + tipo + "]";
 	}
 }

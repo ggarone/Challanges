@@ -9,13 +9,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.garone.service.ViaggioService;
 
 @Controller
-@RequestMapping("")
 public class ClienteMVC {
 	@Autowired
 	private ViaggioService service;
 
-	
-	// /, list -> viaggi.html , add -> operatore.html
 	
 	@GetMapping("")
 	public String getElencoViaggi() {
