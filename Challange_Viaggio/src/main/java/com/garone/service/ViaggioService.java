@@ -10,7 +10,7 @@ public interface ViaggioService {
 	
 	//	CRUD
 	void addViaggio(Viaggio v);
-	void updateViaggio(Viaggio v);
+	Viaggio updateViaggio(Viaggio v);
 	void deleteViaggio(int id);
 	
 	//api REST

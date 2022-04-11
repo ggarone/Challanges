@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -32,7 +33,8 @@ public class ViaggioREST {
 		return service.getViaggi();
 	}
 	
-	@PostMapping("")
+	
+	@PostMapping(name = "",consumes = MediaType.APPLICATION_JSON_VALUE)
 	public Viaggio addViaggio(@RequestBody Viaggio v) {
 		service.addViaggio(v);
 		return v;
@@ -54,8 +56,8 @@ public class ViaggioREST {
 	}
 	
 	@PutMapping("id/{id}")
-	public void updateViaggioById(@RequestBody Viaggio v) {
-		service.updateViaggio(v);
+	public Viaggio updateViaggioById(@RequestBody Viaggio v) {
+		return service.updateViaggio(v);
 	}
 	
 	@GetMapping("documenti/{id}")

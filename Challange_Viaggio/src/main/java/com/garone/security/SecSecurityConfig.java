@@ -20,7 +20,7 @@ import org.springframework.security.web.authentication.logout.LogoutSuccessHandl
 @Configuration
 @EnableWebSecurity
 public class SecSecurityConfig extends WebSecurityConfigurerAdapter{
-
+	
 	private AuthenticationSuccessHandler authenticationSuccessHandler;
 	
 	@Autowired
@@ -33,20 +33,25 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter{
 		http
 			.authorizeRequests()
 				.antMatchers("/admin").hasAnyRole("ADMIN")
-				.antMatchers("/viaggi").hasAnyRole("OPERATORE")
+				.antMatchers("/operatore").hasAnyRole("OPERATORE")
 				.antMatchers("/admin/**").hasAnyRole("ADMIN")
-				.antMatchers("/gestione/**").permitAll()
+				.antMatchers("/operatore/**").hasAnyRole("OPERATORE")
+				.antMatchers("/prenotazioni").hasAnyRole("ADMIN")
+				.antMatchers("/list").hasAnyRole("OPERATORE")
 				.antMatchers("/login").permitAll()
+				.antMatchers("/index").permitAll()
 				.anyRequest().authenticated()
 				.and()
 			.formLogin()
-				.loginPage("/login.html")
+				.loginPage("/login")
 				.successHandler(authenticationSuccessHandler)
-				//.defaultSuccessUrl("/homepage", true)
 				.permitAll()
 				.and()
-			.logout()
-				.permitAll()
+				.logout()
+				.logoutSuccessUrl("/login")
+				.logoutUrl("/perform_logout")
+				.invalidateHttpSession(true)
+				.deleteCookies("JSESSIONID")
 				.and()
 				.csrf().disable();
 	}

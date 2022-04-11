@@ -29,8 +29,8 @@ public class ViaggioServiceImpl implements ViaggioService{
 	}
 
 	@Override
-	public void updateViaggio(Viaggio v) {
-		repo.save(v);
+	public Viaggio updateViaggio(Viaggio v) {
+		return repo.save(v);
 		
 	}
 

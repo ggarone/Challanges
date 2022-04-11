@@ -10,37 +10,37 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.garone.service.ViaggioService;
 
 @Controller
-@RequestMapping("gestione")
+@RequestMapping("gest")
 public class GestioneMVC {
 	@Autowired
 	private ViaggioService service;
 	
 	@GetMapping("login")
-	@ModelAttribute("login")
 	public String getLoginPage() {
+		System.out.println("got here");
 		return "login.html";
 	}
 	
 	@PostMapping("login")
 	public String postLoginPage() {
 		// if utente loggato
-		return "redirect:/viaggi.html";
+		return "redirect:/viaggi";
 		// else
 //		return "index.html";
 	}
 	
 	@GetMapping("list")
 	public String getViaggiList() {
-		return "viaggi.html";
+		return "viaggi";
 	}
 	
 	@GetMapping("add")
 	public String getViaggiForm() {
-		return "operatore.html";
+		return "operatore";
 	}
 	
 	@GetMapping("prenotazioni")
 	public String getPrenotazioniPage() {
-		return "prenotazioni.html";
+		return "prenotazioni";
 	}
 }
