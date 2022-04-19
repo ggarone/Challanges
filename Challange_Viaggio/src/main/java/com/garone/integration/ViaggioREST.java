@@ -5,6 +5,7 @@ import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,12 +22,14 @@ import com.garone.service.ViaggioService;
 
 import net.bytebuddy.asm.Advice.OffsetMapping.ForSerializedValue;
 
+@CrossOrigin
 @RestController
 @RequestMapping("api/viaggi")
 public class ViaggioREST {
 	
 	@Autowired
 	private ViaggioService service;
+	
 	
 	@GetMapping("")
 	public List<Viaggio> getViaggi() {
@@ -66,6 +69,8 @@ public class ViaggioREST {
 		documentiByViaggioId.forEach(System.out::println);
 		return documentiByViaggioId.stream().toList();
 	}
+	
+
 	
 
 

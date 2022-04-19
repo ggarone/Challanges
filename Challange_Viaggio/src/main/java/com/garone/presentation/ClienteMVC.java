@@ -1,12 +1,17 @@
 package com.garone.presentation;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.garone.service.ViaggioService;
 
@@ -15,17 +20,30 @@ import com.garone.service.ViaggioService;
 public class ClienteMVC {
 	@Autowired
 	private ViaggioService service;
-
 	
 	@GetMapping("")
 	public String getElencoViaggi() {
 		return "cliente.html";
 	}
 	
-	@GetMapping("pagamento")
-//	@RequestMapping(value = "pagamento/{id}", method = RequestMethod.GET)
-	public String getPagamento() {
-		System.out.println("qqqqq");
+	@PostMapping("id/{id}")
+	public String postPagamento(@RequestParam int id) {
+		return "redirect:/pagamento/id/"+id;
+	}
+	
+	@PostMapping("pagamento/id/{id}")
+//	@ResponseBody
+	public String getPagamento(@RequestParam("id") int id) {
+		System.out.println(id);
+		StringBuilder sb = new StringBuilder("id"+id);
+		sb.append("\n");
+//		return sb.toString();
+		return "redirect:/acquistag?id=" + id;
+		
+	}
+	
+	@GetMapping("acquistag")
+	public String getAcquista(@RequestParam String id) {
 		return "acquista.html";
 	}
 	
@@ -67,4 +85,5 @@ public class ClienteMVC {
 	public String getPrenotazioniPage() {
 		return "prenotazione.html";
 	}
+	
 }

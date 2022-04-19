@@ -8,8 +8,10 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.garone.dal.ClienteDAO;
 import com.garone.dal.DocDAO;
 import com.garone.dal.ViaggioDAO;
+import com.garone.entities.Cliente;
 import com.garone.entities.Documento;
 import com.garone.entities.Viaggio;
 
@@ -21,6 +23,9 @@ public class ViaggioServiceImpl implements ViaggioService{
 	
 	@Autowired
 	private DocDAO repoDoc;
+	
+	@Autowired
+	private ClienteDAO repoCliente;
 
 	@Override
 	public void addViaggio(Viaggio v) {
@@ -76,6 +81,23 @@ public class ViaggioServiceImpl implements ViaggioService{
 		System.out.println(documentiSet.size());
 		
 		return documentiSet;
+	}
+
+	@Override
+	public List<Cliente> getClienti() {
+		return repoCliente.findAll();
+	}
+
+	@Override
+	public Cliente getClienteById(int id) {
+		// TODO Auto-generated method stub
+		return repoCliente.findById(id).get();
+	}
+
+	@Override
+	public void addCliente(Cliente c) {
+		repoCliente.save(c);
+		
 	}
 	
 	

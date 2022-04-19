@@ -20,6 +20,55 @@ import org.springframework.security.web.authentication.logout.LogoutSuccessHandl
 @Configuration
 @EnableWebSecurity
 public class SecSecurityConfig extends WebSecurityConfigurerAdapter{
+
+//	@Override
+//	protected void configure(final AuthenticationManagerBuilder auth) throws Exception {
+//		super.configure(auth);
+//		auth.inMemoryAuthentication()
+//        .withUser("operatore").password("{noop}operatore1234").roles("OPERATORE")
+//        .and()
+//        .withUser("admin").password("{noop}admin1234").roles("ADMIN");
+//	}
+//
+////	@Bean
+////	public PasswordEncoder passwordEncoder() {
+////		
+////		return  new BCryptPasswordEncoder();
+////	}
+//
+//	@Override
+//	protected void configure(final HttpSecurity http) throws Exception {
+//		super.configure(http);
+//		 http
+//	      .csrf().disable()
+//	      .authorizeRequests()
+//	      .antMatchers("/admin/**").hasRole("ADMIN")
+//	      .antMatchers("/gestione/**").hasRole("OPERATORE")
+//	      .antMatchers("/login").permitAll()
+//	      .anyRequest().authenticated()
+//	      .and()
+//	      .formLogin()
+//	      .loginPage("/login.html")
+//	      .loginProcessingUrl("/perform_login")
+//	      .defaultSuccessUrl("/login/homepage.html", true)
+//	      .failureUrl("/login.html?error=true")
+//	      .failureHandler(authenticationFailureHandler())
+//	      .and()
+//	      .logout()
+//	      .logoutUrl("/perform_logout")
+//	      .deleteCookies("JSESSIONID")
+//	      .logoutSuccessHandler(logoutSuccessHandler());
+//	}
+//
+//	private LogoutSuccessHandler logoutSuccessHandler() {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+//
+//	private AuthenticationFailureHandler authenticationFailureHandler() {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 	
 	private AuthenticationSuccessHandler authenticationSuccessHandler;
 	
@@ -45,6 +94,8 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter{
 			.formLogin()
 				.loginPage("/login")
 				.successHandler(authenticationSuccessHandler)
+				.failureUrl("/login?error")
+				.failureHandler(authenticationFailureHandler())
 				.permitAll()
 				.and()
 				.logout()
@@ -56,6 +107,32 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter{
 				.csrf().disable();
 	}
 
+private AuthenticationFailureHandler authenticationFailureHandler() {
+		// TODO Auto-generated method stub
+		return new CustomAuthenticationFailureHandler();
+	}
+
+//	@SuppressWarnings("deprecation")
+//	@Bean
+//	@Override
+//	public UserDetailsService userDetailsService() {
+//		UserDetails user =
+//			 User.withDefaultPasswordEncoder()
+//				.username("admin")
+//				.password("admin")
+//				.roles("ADMIN")
+//				.build();
+//		
+//		UserDetails user2 =
+//				 User.withDefaultPasswordEncoder()
+//					.username("operatore")
+//					.password("operatore")
+//					.roles("OPERATORE")
+//					.build();
+//
+//		return new InMemoryUserDetailsManager(user, user2);
+//	}
+
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception{
 		auth
@@ -65,4 +142,8 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter{
 		.withUser("operatore").password("{noop}operatore").roles("OPERATORE");
 		
 	}
+	
+	
+	
+	
 }

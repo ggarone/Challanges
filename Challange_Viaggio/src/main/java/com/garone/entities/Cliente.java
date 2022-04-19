@@ -17,7 +17,7 @@ public class Cliente {
 	private String cognome;
 	private String email;
 	private String cardType;
-	private int cardNumber;
+	private String cardNumber;
 	
 	public int getId() {
 		return id;
@@ -49,13 +49,13 @@ public class Cliente {
 	public void setCardType(String cardType) {
 		this.cardType = cardType;
 	}
-	public int getCardNumber() {
+	
+	public String getCardNumber() {
 		return cardNumber;
 	}
-	public void setCardNumber(int cardNumber) {
+	public void setCardNumber(String cardNumber) {
 		this.cardNumber = cardNumber;
 	}
-	
 	@Override
 	public String toString() {
 		return "Clienti [id=" + id + ", nome=" + nome + ", cognome=" + cognome + ", email=" + email + ", cardType="
