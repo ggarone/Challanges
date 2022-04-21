@@ -1,6 +1,6 @@
-.body-back{
+/* .body-back{
     background-color: #E5EFC1;
-}
+} */
 
 .p-50{
     padding: 50px 180px;
@@ -9,7 +9,8 @@
 .title{
     letter-spacing: 2px;
     font-size: 3.5rem;
-    color: #6e949b;
+    color: #ffffff;
+    /* color: #6e949b; */
     text-align: center;
     padding: 10px 0;
     margin-bottom: 0;
@@ -24,7 +25,7 @@ hr:not([size]) {
     width: 70%;
     margin: 0 auto;
     opacity: 1;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0), #6e949b, rgba(0, 0, 0, 0));
+    background: linear-gradient(to right, rgba(0, 0, 0, 0), #ffffff, rgba(0, 0, 0, 0));
 }
 
 #foto-agenzia{
@@ -42,7 +43,10 @@ hr:not([size]) {
     margin-top: 50px;
     padding-left: 30px;
     font-weight: 400;
-    color: #39AEA9;
+    color: #000000;
+    width: 25vw;
+    text-shadow: 0px 0px 10px #6d949bb6;
+    /* background-color: #39AEA9; */
 }
 
 .list-viaggi{
@@ -54,9 +58,9 @@ hr:not([size]) {
     border-bottom: 1px solid black;
 }
 
-/* .row{
+.row{
     margin: 0;
-} */
+}
 
 /* .col-lg-8{
     padding: 10px;
@@ -108,4 +112,58 @@ hr:not([size]) {
 
 .modal-body{
     text-align: left;
+}
+
+
+/* .bg.light{
+    background-color: #1ae02a;
+} */
+
+.mx-5{
+    margin-right: 5rem !important;
+    margin-left: 5rem !important;
+  
+}
+/* .w-75{
+    width: 786px !important;
+} */
+
+.andrea{
+  background-color: rgb(43 139 155);;
+ 
+  text-align: center;
+  text-shadow: 0px 0px 10px #6d949bb6;
+  font-size: 1rem;
+    
+}
+.container-fluid{
+    background-color: rgb(43 139 155);
+    text-align: center;
+}
+
+
+/* .nav-link{
+    color: #ffffff;
+} */
+
+.bg-light {
+    background-color: rgb(43 139 155)!important;
+}
+/* .sposta{
+    width: 2000px;
+} */
+.center{
+    margin: auto;
+    width: 60%;
+    
+    padding: 50px;
+  }
+
+  ion-icon {
+    color: white;
+}
+
+.container{
+    text-align: right;
+    color: #ffffff;
 }

@@ -1,5 +1,6 @@
 package com.garone.entities;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -22,7 +23,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "viaggi")
-public class Viaggio {
+public class Viaggio implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -61,7 +62,7 @@ public class Viaggio {
 			}
 	)
 	private Set<Cliente> clienti = new HashSet<>();
-
+	
 	public int getId() {
 		return id;
 	}

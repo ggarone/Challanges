@@ -1,14 +1,22 @@
 package com.garone.entities;
 
+import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "clienti")
-public class Cliente {
+public class Cliente implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,6 +27,16 @@ public class Cliente {
 	private String cardType;
 	private String cardNumber;
 	
+	@JsonIgnore
+	@ManyToMany(fetch = FetchType.LAZY,mappedBy = "clienti")
+	private Set<Viaggio> viaggi = new HashSet<Viaggio>();
+	
+	public Set<Viaggio> getViaggi() {
+		return viaggi;
+	}
+	public void setViaggi(Set<Viaggio> viaggi) {
+		this.viaggi = viaggi;
+	}
 	public int getId() {
 		return id;
 	}

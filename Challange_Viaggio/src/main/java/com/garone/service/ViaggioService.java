@@ -5,6 +5,7 @@ import java.util.Set;
 
 import com.garone.entities.Cliente;
 import com.garone.entities.Documento;
+import com.garone.entities.Prenotazione;
 import com.garone.entities.Viaggio;
 
 public interface ViaggioService {
@@ -26,4 +27,7 @@ public interface ViaggioService {
 	Documento getDocumentoById(int id);
 //	Set<Documento> getDocumentiByViaggioId(int id);
 	Set<Documento> getDocumentiById(int id);
+	
+	void addPrenotazione(int id_viaggio, int id_cliente);
+	List<Prenotazione> getPrenotazioni();
 }

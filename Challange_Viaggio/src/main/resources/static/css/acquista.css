@@ -1,0 +1,78 @@
+.insert{
+    background-color: #A2D5AB;
+    padding: 50px;
+    margin-top: 20px;
+    margin-left: 30px;
+    width: 70%;
+    /* border: 1px solid black; */
+    border-radius: 20px;
+}
+
+label{
+    font-size: 21px;
+    margin-top: 20px;
+        
+}
+
+h1 {
+    color: red;
+    text-align: left;
+    margin-left: 40px;
+}
+
+input{
+    padding: 18px 5px;
+    height: 35px;
+    width: 50%;
+    display: inline-flex;    
+}
+#name {
+    width:50%;   
+}
+#numPer {
+    width: 15%;
+}
+
+#numCard {
+    width: 55%;
+}
+
+select {
+    font-size: 21px;
+   
+}
+#tot {
+   float: right;
+}
+
+.col-5{
+    text-align: center;
+    /* border: 1px solid black; */
+    position: relative;
+    padding: 0;
+}
+
+.tot{
+    float: right;
+}
+
+
+.btn{
+    
+       
+    background-color: #557B83;
+}
+
+#delete{
+
+    width: 50%;
+    background-color: rgb(255, 29, 29);
+}
+#buy {
+    width: 50%;
+}
+.contB {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}

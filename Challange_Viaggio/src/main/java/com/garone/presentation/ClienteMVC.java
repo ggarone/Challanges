@@ -1,8 +1,13 @@
 package com.garone.presentation;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.garone.entities.Prenotazione;
 import com.garone.service.ViaggioService;
 
 @Controller
@@ -58,9 +64,19 @@ public class ClienteMVC {
 	}
 	
 	@GetMapping("login")
+//	public String getLoginPage() {
+//		System.out.println("got here");
+//		return "login.html";
+//	}
 	public String getLoginPage() {
-		System.out.println("got here");
-		return "login.html";
+		
+		org.springframework.security.core.Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		
+		if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
+			return "login.html";
+		}
+		return  "cliente.html";
+		
 	}
 	
 	@PostMapping("login")
@@ -85,5 +101,26 @@ public class ClienteMVC {
 	public String getPrenotazioniPage() {
 		return "prenotazione.html";
 	}
+	
+	@GetMapping("login-error")
+public String getLoginErrorPage() {
+		
+		org.springframework.security.core.Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		
+		if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
+			
+			return "login-error.html";
+		}
+		return  "cliente.html";
+		
+	}
+	
+
+//	@GetMapping(name = "prenotazione", produces = MediaType.APPLICATION_JSON_VALUE)
+//	public @ResponseBody List<Prenotazione> getClienti() {
+//		System.out.println(service.getPrenotazioni());
+//		return service.getPrenotazioni();
+////		return null;
+//	}
 	
 }

@@ -1,5 +1,6 @@
 package com.garone.service;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
@@ -13,6 +14,7 @@ import com.garone.dal.DocDAO;
 import com.garone.dal.ViaggioDAO;
 import com.garone.entities.Cliente;
 import com.garone.entities.Documento;
+import com.garone.entities.Prenotazione;
 import com.garone.entities.Viaggio;
 
 @Service
@@ -98,6 +100,27 @@ public class ViaggioServiceImpl implements ViaggioService{
 	public void addCliente(Cliente c) {
 		repoCliente.save(c);
 		
+	}
+
+	@Override
+	public void addPrenotazione(int id_viaggio, int id_cliente) {
+		System.out.println("|||||"+id_viaggio + id_cliente);
+		repoCliente.addPrenotazione(id_viaggio, id_cliente);
+	}
+
+	@Override
+	public List<Prenotazione> getPrenotazioni() {
+		List<Prenotazione> prenotazioni = new ArrayList<Prenotazione>();
+		List<List<Integer>> temp = repoCliente.getPrenotazioni();
+		System.out.println(temp);
+		
+		for (List<Integer> list : temp) {
+			Prenotazione p = new Prenotazione();
+			p.setViaggio(repo.getById(list.get(0)));
+			p.setCliente(repoCliente.getById(list.get(1)));
+			prenotazioni.add(p);
+		}
+		return prenotazioni;
 	}
 	
 	

@@ -1,23 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="css/index.css"> -->
+
+    <link rel="stylesheet" href="css/acquista.css">
     <title>Document</title>
 </head>
+
 <body>
-    <h1>Elenco dei Viaggi</h1>
+
+    <h1>Acquista Viaggio</h1>
+
+    <body class="body-back">
+
+        <div class="container-fluid">
+
+            <div class="insert">
+                <div class="city">
+
+                </div>
+                <div class="row">
+                    <div class="col-7">
+                        <label for="name">Nome</label><br>
+                        <input type="text" name="name" id="name" placeholder="Inserisci il tuo nome"><br>
+
+                        <label for="surname">Cognome</label><br>
+                        <input type="text" name="surname" id="surname" placeholder="Inserisci il tuo cognome"><br>
+
+                        <label for="email">Email</label><br>
+                        <input type="email" name="email" id="email" placeholder="Inserisci la tua mail"><br>
+
+                        <label for="typeCard">Carta di Credito</label><br>
 
 
-    <div class="container-fluid p-50">
-        <div class="list-viaggi"></div>
+                        <select name="typeCard" id="typeCard">
+                            <option value="visa">Visa</option>
+                            <option value="mastercard">Mastercard</option>
+                            <option value="americanexpress">AmericanExpress</option>
+                        </select>
+                        <input type="text" name="numCard" id="numCard" placeholder="Inserisci il numero della carta">
+                        <br>
+
+                        <label for="numPer">Numero persone</label>
+                        <label for="tot" class="tot">Importo da Pagare</label><br>
+                        <input type="number" name="numPer" id="numPer">
+                        <p id="tot"></p>
+                        <br>
 
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="js/acquista.js"></script>
-</body>
+
+                    </div>
+
+                    <div class="col-5">
+                        <div class="contB">
+                            <button type="button" class="btn btn-primary" id="delete">ANNULLA</button>
+                            <button type="button" class="btn btn-primary" id="buy">ACQUISTA</button>
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+        </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="js/acquista.js"></script>
+
+    </body>
+
 </html>

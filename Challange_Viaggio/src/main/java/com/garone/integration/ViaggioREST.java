@@ -69,9 +69,4 @@ public class ViaggioREST {
 		documentiByViaggioId.forEach(System.out::println);
 		return documentiByViaggioId.stream().toList();
 	}
-	
-
-	
-
-
 }

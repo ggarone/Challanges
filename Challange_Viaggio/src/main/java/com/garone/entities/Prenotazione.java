@@ -1,27 +1,34 @@
 package com.garone.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.MapsId;
-import javax.persistence.Table;
+import java.io.Serializable;
 
-@Entity
-@Table(name = "prenotazioni")
-public class Prenotazione {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+import javax.xml.bind.annotation.XmlRootElement;
 
-	@ManyToOne
-	@JoinColumn(name = "clienti_id")
-	private Cliente clienti;
+import org.springframework.stereotype.Component;
+
+@XmlRootElement
+public class Prenotazione implements Serializable {
+	private Viaggio viaggio;
+	private Cliente cliente;
 	
-	@ManyToOne
-	@JoinColumn(name = "viaggi_id")
-	private Viaggio viaggi;
+	public Viaggio getViaggio() {
+		return viaggio;
+	}
+	public void setViaggio(Viaggio viaggio) {
+		this.viaggio = viaggio;
+	}
+	public Cliente getCliente() {
+		return cliente;
+	}
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
 	
+	@Override
+	public String toString() {
+		return "Prenotazione [viaggio=" + viaggio + ", cliente=" + cliente + "]";
+	}
+	
+	
+
 }
